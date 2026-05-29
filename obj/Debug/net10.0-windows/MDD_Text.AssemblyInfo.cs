@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MDD_Text")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd48b20a4ed762259849a98e43b24ad6cbb90907")]
 [assembly: System.Reflection.AssemblyProductAttribute("MDD_Text")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MDD_Text")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
