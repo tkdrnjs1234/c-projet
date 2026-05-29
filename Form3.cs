@@ -17,5 +17,15 @@ namespace MDD_Text
         {
             get { return richTextBox1; }
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            Form2? parent = this.MdiParent as Form2;
+
+            if (parent != null)
+            {
+                parent.SetStatus("작성 중");
+            }
+        }
     }
 }

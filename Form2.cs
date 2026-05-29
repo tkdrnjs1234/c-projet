@@ -15,6 +15,10 @@ namespace MDD_Text
     {
         private int docCount = 1;
         private Thread clockThread;
+        public void SetStatus(string message)
+        {
+            toolStripStatusLabel3.Text = message;
+        }
 
         public Form2()
         {
@@ -70,6 +74,7 @@ namespace MDD_Text
         {
             openFileDialog1.Filter = "텍스트 파일 (*.txt)|*.txt|모든 파일 (*.*)|*.*";
             openFileDialog1.Title = "텍스트 파일 열기";
+            toolStripStatusLabel3.Text = "파일 열기 중";
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -179,6 +184,7 @@ namespace MDD_Text
 
             saveFileDialog1.Filter = "텍스트 파일 (*.txt)|*.txt";
             saveFileDialog1.Title = "텍스트 파일 저장";
+            toolStripStatusLabel3.Text = "다른 이름으로 저장하는 중";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -191,23 +197,25 @@ namespace MDD_Text
                 doc.Text = Path.GetFileName(saveFileDialog1.FileName);
             }
 
-            toolStripStatusLabel3.Text = "다른 이름으로 저장";
+            toolStripStatusLabel3.Text = "다른 이름으로 저장 완료";
         }
 
         private void SetupPage() //페이지 설정
         {
+            toolStripStatusLabel3.Text = "페이지 설정 중";
             pageSetupDialog1.Document = printDocument1;
             pageSetupDialog1.ShowDialog();
-            toolStripStatusLabel3.Text = "페이지 설정";
+            toolStripStatusLabel3.Text = "페이지 설정 완료";
         }
 
         private void PrintDocumentFile() //출력
         {
+            toolStripStatusLabel3.Text = "출력 중";
             if (printDialog1.ShowDialog() == DialogResult.OK)
             {
                 printDocument1.Print();
             }
-            toolStripStatusLabel3.Text = "출력";
+            toolStripStatusLabel3.Text = "출력 완료";
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)//위에 출력기능은 프린터한테 출력 해! 그리고 프린터가 어떤걸 출력하는지 알려주는 것이 이 코드
@@ -236,11 +244,13 @@ namespace MDD_Text
         }
 
         private void PreviewPrint() //미리보기
-        {
+
+        {   
+            toolStripStatusLabel3.Text = "출력 미리보기 중";
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
 
-            toolStripStatusLabel3.Text = "출력 미리보기";
+            toolStripStatusLabel3.Text = "출력 미리보기 완료";
         }
 
         private void ExitProgram() //끝내기
@@ -350,6 +360,7 @@ namespace MDD_Text
             }
 
             fontDialog1.Font = doc.Editor.Font;
+            toolStripStatusLabel3.Text = "글꼴 변경중";
 
             if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -374,6 +385,7 @@ namespace MDD_Text
             }
 
             colorDialog1.Color = doc.Editor.BackColor;
+            toolStripStatusLabel3.Text = "배경색 변경중";
 
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
